@@ -70,7 +70,6 @@ create_category() {
     local _filepath="categories/$(echo "$_name" | sed 's/ /-/g' | awk '{print tolower($0)}').html"
 
     if [[ ! -f $_filepath ]]; then
-      echo $_name
       echo "---" > "$_filepath"
       echo "layout: category" >> "$_filepath"
       echo "title: $_name" >> "$_filepath"
@@ -112,21 +111,17 @@ create_pages() {
     IFS_BAK=$IFS
     IFS=$'\n'
     local _string=$1
-    echo _string ,$_string
 
     case $2 in
 
       $TYPE_CATEGORY)
         for i in $_string; do
-          echo i, $i
-          i=${i:2}
           create_category "$i"
         done
         ;;
 
       $TYPE_TAG)
         for i in $_string; do
-          i=${i:2}
           create_tag "$i"
         done
         ;;
@@ -145,11 +140,9 @@ main() {
   init
 
   for _file in $(find "_posts" -type f \( -iname \*.md -o -iname \*.markdown \)); do
-    echo $_file
     local _categories=$(read_categories "$_file")
     local _tags=$(read_tags "$_file")
-    echo "create category ",${_categories}
-    echo "create tags ",${_tags}
+
     create_pages "$_categories" $TYPE_CATEGORY
     create_pages "$_tags" $TYPE_TAG
   done
@@ -164,9 +157,3 @@ main() {
 }
 
 main
-# _file="_posts/2020-10-18-同级目录博客.md"
-# _yaml="$(_read_yaml "$_file")"
-# echo $_yaml
-# _categories="$(echo "$_yaml" | yq r - "categories.*")"
-# echo $_categories
-# create_pages "$_categories" $TYPE_CATEGORY
