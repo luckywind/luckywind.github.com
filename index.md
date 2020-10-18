@@ -1,6 +1,6 @@
 # Welcome to GitHub Pages
 
-[第一篇博客](docs/第一篇博客.md)
+[第一篇博客](https://github.com/luckywind/luckywind.github.com/blob/main/docs/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.md)
 
 [第二篇博客](同级目录博客.md)
 
