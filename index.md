@@ -1,41 +1,46 @@
-# Welcome to GitHub Pages
+---
+layout: page
+title: Hello World!
+tagline: Supporting tagline
+---
+{% include JB/setup %}
 
-[第一篇博客](https://github.com/luckywind/luckywind.github.com/blob/main/docs/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.md)
+Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
 
-[第二篇博客](同级目录博客.md)
+Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
 
-You can use the [editor on GitHub](https://github.com/luckywind/luckywind.github.com/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+## Update Author Attributes
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+In `_config.yml` remember to specify your own data:
+    
+    title : My Blog =)
+    
+    author :
+      name : Name Lastname
+      email : blah@email.test
+      github : username
+      twitter : username
 
-## Markdown
+The theme should reference these variables whenever needed.
+    
+## Sample Posts
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+This blog contains sample posts which help stage pages and blog data.
+When you don't need the samples anymore just delete the `_posts/core-samples` folder.
 
-```markdown
-Syntax highlighted code block
+    $ rm -rf _posts/core-samples
 
-# Header 1
-## Header 2
-### Header 3
+Here's a sample "posts list".
 
-- Bulleted
-- List
+<ul class="posts">
+  {% for post in site.posts %}
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
 
-1. Numbered
-2. List
+## To-Do
 
-**Bold** and _Italic_ and `Code` text
+This theme is still unfinished. If you'd like to be added as a contributor, [please fork](http://github.com/plusjade/jekyll-bootstrap)!
+We need to clean up the themes, make theme usage guides with theme-specific markup examples.
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/luckywind/luckywind.github.com/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
