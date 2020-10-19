@@ -126,7 +126,7 @@ create_pages() {
 
       $TYPE_TAG)
         for i in $_string; do
-          # i=${i:2}
+          i=${i:2}
           create_tag "$i"
         done
         ;;
