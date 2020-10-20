@@ -63,7 +63,7 @@ google_analytics:
     cache: false  # pv data local cache, good for the users from GFW area.
 
 disqus:
-  comments: true  # boolean type, the global switch for posts comments.
+  comments: true  # boolean type, the global switch for posts comments. 评论全局开关
   shortname: ''    # Fill with your Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
 
 
@@ -110,7 +110,7 @@ defaults:
       type: posts
     values:
       layout: post
-      comments: true    # Enable comments in posts.
+      comments: true    # 开启评论Enable comments in posts.
       toc: true         # Display TOC column in posts.
       location: Post
       breadcrumb:
@@ -196,6 +196,3 @@ sitemap_exclude:  # Sitemap will exclude the following items.
     - sitemap.xml
     - robots.txt
     - redirects.json
-
-# 评论
-comments: true    
