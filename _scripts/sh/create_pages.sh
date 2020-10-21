@@ -169,16 +169,12 @@ main() {
   fi
 }
 
-# main
-_file="_posts/scala/2020-10-20-高阶函数.md"
-_yaml="$(_read_yaml "$_file")"
-echo $_yaml
-_categories="$(echo "$_yaml" | yq r - "categories.*")"
-echo $_categories
-create_pages "$_categories" $TYPE_CATEGORY
-
+main
 # _file="_posts/scala/2020-10-20-高阶函数.md"
-# _categories=$(read_categories "$_file")
-# _tags=$(read_tags "$_file")
-# echo "create category ",${_categories}
-# echo "create tags ",${_tags}
+# _yaml="$(_read_yaml "$_file")"
+# echo $_yaml
+# _categories="$(echo "$_yaml" | yq r - "categories.*")"
+# echo $_categories
+# create_pages "$_categories" $TYPE_CATEGORY
+
+
