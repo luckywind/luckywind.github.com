@@ -118,15 +118,21 @@ create_pages() {
 
       $TYPE_CATEGORY)
         for i in $_string; do
-          echo i, $i
+          # 如果是-开头，这里进行一个修正
+          if [[ "$i" =~ ^-.* ]]; then
           i=${i:2}
+          fi
+          echo "fixed i",$i
           create_category "$i"
         done
         ;;
 
       $TYPE_TAG)
         for i in $_string; do
+          if [[ "$i" =~ ^-.* ]]; then
           i=${i:2}
+          fi
+          echo "fixed i",$i
           create_tag "$i"
         done
         ;;
@@ -163,10 +169,16 @@ main() {
   fi
 }
 
-main
-# _file="_posts/2020-10-18-同级目录博客.md"
-# _yaml="$(_read_yaml "$_file")"
-# echo $_yaml
-# _categories="$(echo "$_yaml" | yq r - "categories.*")"
-# echo $_categories
-# create_pages "$_categories" $TYPE_CATEGORY
+# main
+_file="_posts/scala/2020-10-20-高阶函数.md"
+_yaml="$(_read_yaml "$_file")"
+echo $_yaml
+_categories="$(echo "$_yaml" | yq r - "categories.*")"
+echo $_categories
+create_pages "$_categories" $TYPE_CATEGORY
+
+# _file="_posts/scala/2020-10-20-高阶函数.md"
+# _categories=$(read_categories "$_file")
+# _tags=$(read_tags "$_file")
+# echo "create category ",${_categories}
+# echo "create tags ",${_tags}

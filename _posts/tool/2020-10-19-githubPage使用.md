@@ -1,3 +1,9 @@
+---
+categories: [tool]
+---
+
+
+
 # 创建githubPages
 
 1. 创建一个仓库*username*.github.io。username一定要替换成自己的
